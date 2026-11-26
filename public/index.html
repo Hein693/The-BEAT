@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The BEAT — Modern Music Streaming</title>
+  <meta name="description" content="The BEAT is a modern, bold, and aesthetic music streaming platform featuring live music discovery, custom playlists, and continuous high-fidelity audio playback.">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+  <!-- Modular CSS Stylesheets -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/player.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Backdrop for Mobile Navigation Drawer -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+  <!-- Primary Application Container -->
+  <div class="app-container">
+
+    <!-- ================= DESKTOP SIDEBAR ================= -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="Main Navigation">
+      <!-- Brand Logo & Header -->
+      <div class="sidebar-brand" data-nav="home">
+        <img src="/assets/logo.svg" alt="The BEAT Monogram" class="brand-logo-img">
+        <span class="brand-text">The BEAT</span>
+      </div>
+
+      <!-- Main Navigation Menu -->
+      <nav class="sidebar-nav">
+        <span class="nav-label">Menu</span>
+        <button class="nav-item active" data-nav="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Home</span>
+        </button>
+
+        <button class="nav-item" data-nav="browse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Browse</span>
+        </button>
+
+        <button class="nav-item" data-nav="artists">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Artists</span>
+        </button>
+
+        <button class="nav-item" data-nav="genres">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          <span>Music Genres</span>
+        </button>
+
+        <button class="nav-item" data-nav="playlists">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          <span>Playlists</span>
+        </button>
+
+        <button class="nav-item" data-nav="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Playlists Section -->
+      <div class="sidebar-playlists">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
+          <span class="nav-label" style="padding:0;">Your Playlists</span>
+          <button class="action-icon-btn" id="open-create-playlist-btn" title="Create Playlist">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+        <div id="sidebar-playlists-list">
+          <!-- Populated dynamically by views.js -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= MAIN SCROLLABLE APP AREA ================= -->
+    <main class="app-main">
+
+      <!-- Top Sticky App Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Quick Global Search -->
+          <div class="header-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="header-search-input" id="header-search-input" placeholder="Search songs, artists, albums..." autocomplete="off">
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Theme Toggle (Dark Obsidian / Cyber Beat / Light) -->
+          <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Visual Theme">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Profile Indicator -->
+          <div class="user-profile-badge" data-nav="settings">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Alex Rivera" class="user-avatar-mini" id="header-avatar">
+            <span class="user-name-mini" id="user-name-display">Alex Rivera</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ================= SPA VIEWS CONTAINER ================= -->
+      <div class="view-container" id="views-container">
+
+        <!-- 1. HOME VIEW -->
+        <section class="view-section active" id="view-home">
+          <!-- Hero Banner -->
+          <div class="home-hero">
+            <div class="hero-content">
+              <span class="hero-tag">Trending Release</span>
+              <h1 class="hero-title">Experience Sonic Brilliance</h1>
+              <p class="hero-desc">Immerse yourself in current chart-toppers, high-fidelity audio streams, and handpicked tracks crafted for every vibe.</p>
+              <button class="hero-btn" id="hero-play-btn">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Listen Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Trending Tracks -->
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Trending Tracks 🔥</h2>
+              <p class="section-subtitle">Real-time global favorites streaming right now</p>
+            </div>
+            <button class="see-all-btn" data-nav="browse">
+              <span>Explore All</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="card-grid" id="home-trending-grid">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Recently Played -->
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Recently Played 🕒</h2>
+              <p class="section-subtitle">Pick up right where your session left off</p>
+            </div>
+          </div>
+          <div class="track-list" id="home-recent-list">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Curated Playlists -->
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Curated Playlists ✨</h2>
+              <p class="section-subtitle">Crafted soundscapes designed for moods and genres</p>
+            </div>
+            <button class="see-all-btn" data-nav="playlists">
+              <span>View All</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="card-grid" id="home-playlists-grid">
+            <!-- Populated dynamically -->
+          </div>
+        </section>
+
+        <!-- 2. BROWSE VIEW -->
+        <section class="view-section" id="view-browse">
+          <div class="browse-search-bar">
+            <div class="browse-search-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" class="browse-search-input" id="browse-search-input" placeholder="Search by song title, artist, or album...">
+            </div>
+          </div>
+
+          <!-- Genre Filter Chips -->
+          <div class="filter-chips" id="browse-genre-chips">
+            <!-- Populated dynamically -->
+          </div>
+
+          <div class="section-header">
+            <h2 class="section-title" id="browse-results-title">Top Global Discoveries</h2>
+          </div>
+          <div id="browse-results-content">
+            <!-- Populated dynamically -->
+          </div>
+        </section>
+
+        <!-- 3. ARTISTS VIEW -->
+        <section class="view-section" id="view-artists">
+          <!-- Artists List Section -->
+          <div id="artists-list-section">
+            <div class="section-header">
+              <div>
+                <h1 class="section-title">Featured Artists 🎙️</h1>
+                <p class="section-subtitle">Discover the biggest icons shaping global sound</p>
+              </div>
+            </div>
+            <div class="artist-grid" id="artists-grid">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Single Artist Details Section (Loaded upon clicking an artist) -->
+          <div id="artist-detail-section" style="display:none;"></div>
+        </section>
+
+        <!-- 4. MUSIC GENRES VIEW -->
+        <section class="view-section" id="view-genres">
+          <!-- Genres List Section -->
+          <div id="genres-list-section">
+            <div class="section-header">
+              <div>
+                <h1 class="section-title">Music Genres & Moods ⚡</h1>
+                <p class="section-subtitle">Explore sonic flavors from Synthwave to Hip-Hop and K-Pop</p>
+              </div>
+            </div>
+            <div class="genre-grid" id="genres-grid">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Genre Detail Section (Tracks within selected genre) -->
+          <div id="genre-detail-section" style="display:none;"></div>
+        </section>
+
+        <!-- 5. PLAYLISTS VIEW -->
+        <section class="view-section" id="view-playlists">
+          <!-- Playlists List Section -->
+          <div id="playlists-list-section">
+            <div class="playlists-toolbar">
+              <div>
+                <h1 class="section-title">Your Playlists 💿</h1>
+                <p class="section-subtitle">Manage, create, and customize your personal track collections</p>
+              </div>
+              <button class="create-playlist-btn" onclick="window.PlaylistManager.openCreateModal()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Create Playlist
+              </button>
+            </div>
+            <div class="card-grid" id="playlists-grid">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Playlist Details View (Tracks & playlist actions) -->
+          <div id="playlist-detail-section" style="display:none;"></div>
+        </section>
+
+        <!-- 6. SETTINGS VIEW -->
+        <section class="view-section" id="view-settings">
+          <div class="section-header">
+            <div>
+              <h1 class="section-title">Settings & Preferences ⚙️</h1>
+              <p class="section-subtitle">Customize your player interface, audio fidelity, and user profile</p>
+            </div>
+          </div>
+
+          <div class="settings-container">
+            <!-- Profile Settings Card -->
+            <div class="settings-card">
+              <h2 class="settings-card-title">Profile Settings</h2>
+              <p class="settings-card-desc">Manage how your profile appears on The BEAT.</p>
+              <div class="form-group">
+                <label class="form-label" for="settings-display-name">Display Name</label>
+                <input type="text" id="settings-display-name" style="width:100%; max-width:380px;">
+              </div>
+            </div>
+
+            <!-- Visual Theme Card -->
+            <div class="settings-card">
+              <h2 class="settings-card-title">Visual Identity & Theme</h2>
+              <p class="settings-card-desc">Choose a design aesthetic tailored to your vibe.</p>
+              <div class="theme-options">
+                <div class="theme-choice-card" data-theme-value="dark">
+                  <div class="theme-preview-box" style="background:#080a0e; border:1px solid #00f2fe;"></div>
+                  <div class="theme-name">Dark Obsidian</div>
+                </div>
+                <div class="theme-choice-card" data-theme-value="cyber">
+                  <div class="theme-preview-box" style="background:#050608; border:1px solid #ff007f;"></div>
+                  <div class="theme-name">Cyber Beat</div>
+                </div>
+                <div class="theme-choice-card" data-theme-value="light">
+                  <div class="theme-preview-box" style="background:#f1f5f9; border:1px solid #0284c7;"></div>
+                  <div class="theme-name">Clean Light</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Playback & Audio Settings Card -->
+            <div class="settings-card">
+              <h2 class="settings-card-title">Playback & Fidelity</h2>
+              <p class="settings-card-desc">Tune your stream quality and listening experience.</p>
+              <div class="form-group">
+                <label class="form-label" for="settings-audio-quality">Audio Streaming Quality</label>
+                <select id="settings-audio-quality" style="width:100%; max-width:380px;">
+                  <option value="normal">Normal (160 kbps MP3)</option>
+                  <option value="high" selected>High (256 kbps AAC)</option>
+                  <option value="ultra">Ultra Fidelity (320 kbps Lossless)</option>
+                </select>
+              </div>
+
+              <div class="settings-toggle-row">
+                <div>
+                  <div class="toggle-label-title">Audio Crossfade & Gapless</div>
+                  <div class="toggle-label-sub">Smooth transitions between consecutive songs</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+
+              <div class="settings-toggle-row">
+                <div>
+                  <div class="toggle-label-title">Push Notifications</div>
+                  <div class="toggle-label-sub">Get notified when followed artists release new songs</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="settings-notifications" checked>
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Save Action Button -->
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn-primary" id="save-settings-btn">Save Changes</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= FIXED BOTTOM MUSIC PLAYER ================= -->
+  <footer class="bottom-player" id="bottom-player" role="region" aria-label="Audio Player">
+    <!-- Left: Track Details -->
+    <div class="player-left">
+      <div class="player-cover-wrap">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=200&auto=format&fit=crop&q=80" alt="Current Track" class="player-cover-img" id="player-cover">
+      </div>
+      <div class="player-track-details">
+        <span class="player-track-title truncate-1" id="player-title">Select a track</span>
+        <span class="player-track-artist truncate-1" id="player-artist">The BEAT Streaming</span>
+      </div>
+      <button class="player-fav-btn" id="player-fav-btn" aria-label="Toggle Favorite">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Center: Main Controls & Timeline -->
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="ctrl-btn ctrl-shuffle" id="ctrl-shuffle-btn" title="Toggle Shuffle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 3 21 3 21 8"></polyline>
+            <line x1="4" y1="20" x2="21" y2="3"></line>
+            <polyline points="21 16 21 21 16 21"></polyline>
+            <line x1="15" y1="15" x2="21" y2="21"></line>
+            <line x1="4" y1="4" x2="9" y2="9"></line>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn" id="ctrl-prev-btn" title="Previous Track">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="19 20 9 12 19 4 19 20"></polygon>
+            <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn ctrl-play-btn" id="ctrl-play-btn" title="Play / Pause">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn" id="ctrl-next-btn" title="Next Track">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 4 15 12 5 20 5 4"></polygon>
+            <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn ctrl-repeat" id="ctrl-repeat-btn" title="Toggle Repeat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="17 1 21 5 17 9"></polyline>
+            <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+            <polyline points="7 23 3 19 7 15"></polyline>
+            <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scrubber Timeline -->
+      <div class="player-timeline">
+        <span class="time-text" id="current-time">0:00</span>
+        <div class="timeline-bar-wrap" id="timeline-bar" role="slider" aria-label="Playback Progress" aria-valuemin="0" aria-valuemax="100">
+          <div class="timeline-progress" id="timeline-progress">
+            <div class="timeline-handle"></div>
+          </div>
+        </div>
+        <span class="time-text" id="total-time">0:30</span>
+      </div>
+    </div>
+
+    <!-- Right: Volume Control -->
+    <div class="player-right">
+      <div class="volume-wrap">
+        <button class="vol-btn" id="vol-btn" aria-label="Mute or Unmute">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <div class="vol-slider-wrap" id="vol-slider" role="slider" aria-label="Volume Slider" aria-valuemin="0" aria-valuemax="100">
+          <div class="vol-progress" id="vol-progress">
+            <div class="vol-handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MOBILE BOTTOM NAVIGATION ================= -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <button class="mobile-nav-item active" data-nav="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </button>
+    <button class="mobile-nav-item" data-nav="browse">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Browse</span>
+    </button>
+    <button class="mobile-nav-item" data-nav="artists">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Artists</span>
+    </button>
+    <button class="mobile-nav-item" data-nav="genres">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+      <span>Genres</span>
+    </button>
+    <button class="mobile-nav-item" data-nav="playlists">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="8" y1="6" x2="21" y2="6"></line>
+        <line x1="8" y1="12" x2="21" y2="12"></line>
+        <line x1="8" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span>Playlists</span>
+    </button>
+    <button class="mobile-nav-item" data-nav="settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span>Settings</span>
+    </button>
+  </nav>
+
+  <!-- ================= MODAL: CREATE PLAYLIST ================= -->
+  <div class="modal-overlay" id="create-playlist-modal" role="dialog" aria-modal="true" aria-labelledby="create-playlist-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="create-playlist-title">Create New Playlist</h2>
+        <button class="modal-close-btn" id="close-playlist-modal" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <form id="create-playlist-form">
+        <div class="form-group">
+          <label class="form-label" for="new-playlist-title">Playlist Title</label>
+          <input type="text" id="new-playlist-title" placeholder="e.g. Midnight Chill, Workout Energy" required style="width:100%;">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="new-playlist-desc">Description (Optional)</label>
+          <textarea id="new-playlist-desc" rows="3" placeholder="Tell listeners what this playlist is about..." style="width:100%;"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancel-playlist-btn">Cancel</button>
+          <button type="submit" class="btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast Element -->
+  <div class="toast-notice" id="toast-notice" role="status" aria-live="polite"></div>
+
+  <!-- Client-side Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/player.js"></script>
+  <script src="/js/playlists.js"></script>
+  <script src="/js/views.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

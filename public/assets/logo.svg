@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="beatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#4facfe" />
+      <stop offset="100%" stop-color="#9b51e0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Modern Geometric Sound Beat Wave Monogram -->
+  <rect x="4" y="4" width="40" height="40" rx="12" fill="#12151d" stroke="url(#beatGrad)" stroke-width="2"/>
+  <!-- Equalizer Bars forming a dynamic soundwave 'B' rhythm -->
+  <rect x="13" y="14" width="4" height="20" rx="2" fill="url(#beatGrad)" filter="url(#glow)"/>
+  <rect x="20" y="10" width="4" height="28" rx="2" fill="url(#beatGrad)"/>
+  <rect x="27" y="16" width="4" height="16" rx="2" fill="url(#beatGrad)"/>
+  <rect x="34" y="20" width="4" height="8" rx="2" fill="url(#beatGrad)"/>
+  <!-- Rhythm pulse dots -->
+  <circle cx="22" cy="7" r="1.5" fill="#00f2fe"/>
+  <circle cx="29" cy="11" r="1.5" fill="#9b51e0"/>
+</svg>

@@ -1,0 +1,108 @@
+/**
+ * ====================================================================
+ * Design Tokens & Theme Variables
+ * The BEAT - Modern Music Streaming Platform
+ * ====================================================================
+ */
+
+:root {
+  /* Default Dark Obsidian Theme */
+  --bg-base: #080a0e;
+  --bg-sidebar: #0f1218;
+  --bg-surface: #141822;
+  --bg-surface-hover: #1c2230;
+  --bg-card: rgba(22, 27, 38, 0.75);
+  --bg-card-hover: rgba(30, 37, 52, 0.9);
+  --bg-player: rgba(15, 18, 24, 0.88);
+  --bg-glass: rgba(18, 22, 32, 0.65);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(0, 242, 254, 0.35);
+
+  /* Brand Accents - Electric Cyan & Cyber Violet */
+  --accent-primary: #00f2fe;
+  --accent-secondary: #4facfe;
+  --accent-purple: #7928ca;
+  --accent-pink: #ff007f;
+  --accent-green: #10b981;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #7928ca 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #38f9d7 0%, #4facfe 50%, #9b51e0 100%);
+  --glow-primary: 0 0 25px rgba(0, 242, 254, 0.28);
+  --glow-purple: 0 0 25px rgba(121, 40, 202, 0.3);
+
+  /* Typography Colors */
+  --text-main: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #080a0e;
+
+  /* Sizing & Radius */
+  --sidebar-width: 250px;
+  --player-height: 86px;
+  --header-height: 70px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 20px -4px rgba(0, 0, 0, 0.3);
+}
+
+/* Cyber Beat High-Contrast Theme */
+[data-theme="cyber"] {
+  --bg-base: #050608;
+  --bg-sidebar: #090b10;
+  --bg-surface: #0e121a;
+  --bg-surface-hover: #181e2b;
+  --bg-card: rgba(14, 18, 26, 0.85);
+  --bg-card-hover: rgba(22, 29, 42, 0.95);
+  --bg-player: rgba(9, 11, 16, 0.95);
+  --bg-glass: rgba(11, 15, 23, 0.75);
+  --border-color: rgba(0, 242, 254, 0.18);
+  --border-hover: rgba(0, 242, 254, 0.6);
+
+  --accent-primary: #00f2fe;
+  --accent-secondary: #ff007f;
+  --accent-purple: #9b51e0;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #ff007f 100%);
+  --glow-primary: 0 0 30px rgba(0, 242, 254, 0.45);
+  --text-main: #ffffff;
+  --text-secondary: #a1b2c6;
+  --text-muted: #57687f;
+}
+
+/* Modern Clean Light Theme */
+[data-theme="light"] {
+  --bg-base: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-player: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 150, 255, 0.4);
+
+  --accent-primary: #0284c7;
+  --accent-secondary: #6366f1;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+  --accent-gradient: linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
+  --glow-primary: 0 4px 16px rgba(2, 132, 199, 0.2);
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+}

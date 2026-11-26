@@ -1,0 +1,266 @@
+/**
+ * ====================================================================
+ * Responsive Layout & Media Queries
+ * The BEAT - Modern Music Streaming Platform
+ * ====================================================================
+ */
+
+/* ================= TABLET (<= 1024px) ================= */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 210px;
+  }
+
+  .view-container {
+    padding: 1.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .artist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .track-row {
+    grid-template-columns: 36px 48px 1fr 100px 60px 80px;
+  }
+
+  .bottom-player {
+    grid-template-columns: 240px 1fr 180px;
+    padding: 0 1.25rem;
+  }
+
+  .vol-slider-wrap {
+    width: 70px;
+  }
+}
+
+/* ================= MOBILE (<= 768px) ================= */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --player-height: 74px;
+  }
+
+  /* Hide Desktop Sidebar */
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 270px;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-surface);
+  }
+
+  .app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Sidebar Backdrop */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 39;
+  }
+
+  .sidebar-backdrop.active {
+    display: block;
+  }
+
+  /* Header adjustments */
+  .app-header {
+    padding: 0 1rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .header-search-wrap {
+    display: none; /* Accessible in Browse View on mobile */
+  }
+
+  .user-name-mini {
+    display: none;
+  }
+
+  .user-profile-badge {
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  /* Main View Padding */
+  .view-container {
+    padding: 1rem;
+    padding-bottom: 6rem; /* Extra space for bottom player & mobile bar */
+  }
+
+  /* Hero Section */
+  .home-hero {
+    min-height: 220px;
+    padding: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-desc {
+    display: none;
+  }
+
+  /* Grids */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .artist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .artist-avatar-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  /* Track Row on Mobile */
+  .track-row {
+    grid-template-columns: 44px 1fr 50px 40px;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .track-num,
+  .track-row-album {
+    display: none;
+  }
+
+  .track-info {
+    padding-left: 0.5rem;
+  }
+
+  .track-row-title {
+    font-size: 0.88rem;
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: var(--player-height);
+    left: 0;
+    width: 100vw;
+    height: 52px;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    z-index: 45;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+  }
+
+  .mobile-nav-item.active {
+    color: var(--accent-primary);
+  }
+
+  .mobile-nav-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Compact Bottom Player on Mobile */
+  .bottom-player {
+    grid-template-columns: 1fr auto;
+    padding: 0 1rem;
+    height: var(--player-height);
+  }
+
+  .player-right {
+    display: none; /* Hidden on mobile to keep controls uncluttered */
+  }
+
+  .player-center {
+    justify-content: flex-end;
+  }
+
+  .player-timeline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    gap: 0;
+  }
+
+  .player-timeline .time-text {
+    display: none;
+  }
+
+  .timeline-bar-wrap {
+    width: 100%;
+    height: 3px;
+    border-radius: 0;
+  }
+
+  .ctrl-btn.ctrl-shuffle,
+  .ctrl-btn.ctrl-repeat {
+    display: none;
+  }
+
+  .player-controls {
+    gap: 0.85rem;
+  }
+
+  /* Playlist & Artist Banners */
+  .playlist-detail-banner,
+  .artist-detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .playlist-banner-cover {
+    width: 140px;
+    height: 140px;
+  }
+
+  .playlist-banner-details h1,
+  .artist-detail-info h1 {
+    font-size: 1.75rem;
+  }
+
+  .theme-options {
+    grid-template-columns: 1fr;
+  }
+}
